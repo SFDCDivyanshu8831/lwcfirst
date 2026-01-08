@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Render Primitive Data" icon-name="custom:custom14">
+        <div class="slds-var-p-around_small">
+            <template for:each={Superstars} for:item="Star">
+                <p key = {Star}>{Star}</p>
+            </template>
+        </div>
+    </lightning-card>
+
+        <lightning-card title="Render Complex Data" icon-name="custom:custom14">
+            <div class="slds-var-p-around_small">
+                <template for:each={Users} for:item="User">
+                    <p key = {id}>{User.name} {User.age}</p>
+                </template>
+            </div>
+        </lightning-card>
+        <lightning-card title="Render Complex Data-Iterator" icon-name="custom:custom14">
+            <template iterator:it= {Users}>
+                <div key = {it.value.id}>
+                    <div lwc:if= {it.first} class="List-Name"></div>
+                    <p>{it.value.name} {it.value.age}</p>
+                    <div lwc:if= {it.last} class="List-Age"></div>
+                </div>
+            </template>
+
+        </lightning-card>
+</template>

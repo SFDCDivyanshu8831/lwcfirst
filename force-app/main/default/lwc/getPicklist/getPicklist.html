@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="getPicklistValues">
+        <template lwc:if={industryPicklist.data}>
+        <lightning-combobox
+            name="progress"
+            label="Industry"
+            value={value}
+            placeholder="Select Industry"
+            options={industryPicklist.data.values}
+            onchange={handleChange} 
+            class="slds-var-p-around_small"></lightning-combobox>
+
+    <p>Selected value is: {value}</p>
+    </template>
+    </lightning-card>
+      <lightning-card title="get Picklist Values by Record Type">
+        <template lwc:if={accObjPicklist.data}>
+        <lightning-combobox
+            name="progress"
+            label="Rating"
+            placeholder="Select Rating"
+            options={accObjPicklist.data.picklistFieldValues.Rating.values}
+            class="slds-var-p-around_small">
+        </lightning-combobox>
+        <lightning-combobox
+            name="progress"
+            label="Priority"
+            placeholder="Customer Priority"
+            options={accObjPicklist.data.picklistFieldValues.CustomerPriority__c.values}
+            class="slds-var-p-around_small">
+        </lightning-combobox>
+    </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,12 @@
+<template>
+    <lightning-card>
+        <template lwc:if={displayMessage}>
+        <p class="slds-var-p-around_small">
+            welcome from child component
+        </p>
+        </template>
+        <div class="slds-var-p-around_small">
+        <c-child-comp-custom-event ondisplaymessage = {displayMessageHandler}></c-child-comp-custom-event>
+            </div>
+    </lightning-card>
+</template>

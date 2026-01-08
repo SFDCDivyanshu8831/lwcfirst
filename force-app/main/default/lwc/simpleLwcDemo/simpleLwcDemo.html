@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Simple LWC Demo">
+
+        <p>Component Loaded Count: {loadCount}</p>
+
+        <lightning-input 
+            label="Type Something" 
+            value={text} 
+            onchange={handleChange}>
+        </lightning-input>
+
+        <p>You typed: {text}</p>
+
+    </lightning-card>
+</template>
