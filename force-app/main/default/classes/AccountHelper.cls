@@ -1,7 +1,7 @@
 public with sharing class AccountHelper {
  
     @AuraEnabled(cacheable=true)
-    public static List<Account> getAccountList() {
+    public static List<Account> getAccountList(string inputindustry) {
         return [
             SELECT Id,
                    Name,
@@ -9,6 +9,7 @@ public with sharing class AccountHelper {
                    Industry,
                    Rating
             FROM Account
+            WHERE Industry = :inputindustry
             WITH USER_MODE
         ];
     }
