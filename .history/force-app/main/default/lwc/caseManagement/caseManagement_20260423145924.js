@@ -1,0 +1,55 @@
+import { LightningElement,wire } from 'lwc';
+import getOpenCases from '@salesforce/apex/CaseManagementController.getOpenCases'
+export default class CaseManagement extends LightningElement {
+    selectedAccountId;
+    disableButton = true;
+    totalopencasecount;
+    totalselectedcases ;   
+    wiredCaseResult = []; 
+    cases = [];
+    error = null;
+    columns = [
+    { label: 'CaseNumber', fieldName: 'CaseNumber' },
+    { label: 'Subject', fieldName: 'Subject'},
+    { label: 'Phone', fieldName: 'phone', type: 'phone' },
+    { label: 'Balance', fieldName: 'amount', type: 'currency' },
+    { label: 'CloseAt', fieldName: 'closeAt', type: 'date' },
+];
+    
+    
+    @wire(getOpenCases,{accountId : '$selectedAccountId'})
+    wiredCases({result}){
+        this.wiredCaseResult = result.data;
+        if(result.data){
+            this.cases = processCaseResult(result.data);
+            this.error = null;
+        }else if(result.error){
+            this.cases = null;
+            this.error = this.error;
+        }
+    }
+
+
+    processCaseResult(caseData){
+        let processedResponse = caseData.map(caseRecord =>({
+            ...caseRecord,
+            AccountName : caseRecord.Account?.Name || 'N/A',
+            ContactName : caseRecord.Contact?.Name || 'N/A'
+        }))
+
+        return processedResponse;
+    }
+
+
+
+    handleSearchAccount(event){
+
+        this.selectedAccountId = event.detail.recordId;
+
+    }
+
+    get isDataAvailable(){
+        return this.cases.length > 0;
+    }
+
+}

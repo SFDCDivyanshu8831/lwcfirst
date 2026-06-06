@@ -1,0 +1,7 @@
+public with sharing class OpportunityHelper {
+    
+    public static void BeforeDelete(){
+        
+    }
+
+}

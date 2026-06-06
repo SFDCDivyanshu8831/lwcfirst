@@ -1,0 +1,19 @@
+<template>
+    <template lwc:if={isRecordAvailable}>
+
+        <div style="height: 300px;">
+        <lightning-datatable
+                key-field="id"
+                data={accounts.data}
+                columns={columns}>
+        </lightning-datatable>
+    </div>
+
+    </template>
+
+    <template lwc:else>
+
+        <p>No Accounts Available for logged in User</p>
+
+    </template>
+</template>

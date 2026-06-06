@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterlabel>Admin Notification</masterlabel>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning_HomePage</target>
+        <target>lightning_RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets = 'lightning__AppPage,lightning_HomePage,lightning_RecordPage'>
+          <property name = 'title'
+                    type = 'String'
+                    label = 'Title'
+                    description = 'Main headline of the announcement'></property>  
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

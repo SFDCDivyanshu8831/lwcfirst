@@ -1,0 +1,12 @@
+public with sharing class CaseManagementController {
+    
+    @AuraEnabled(cacheable=true)
+    public static List<Case> getOpenCases (Id accountId){
+
+        String query = 'SELECT Id , CaseNumber, AccountId, Account.Name,' +
+                        'Subject, ContactId, Contact.Name, Status,'
+
+    }
+
+
+}

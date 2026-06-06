@@ -1,0 +1,44 @@
+<template>
+    <!-------------------Header Section------------------------------------->
+    <lightning-card title="Case Management Utility" icon-name="standard:case">
+        <div class="slds-var-p-around_medium">
+                <div class="slds-grid slds-gutters">
+     <div class="slds-col slds-size_2-of-3">
+            <lightning-record-picker
+                    label="Filter By Accounts"
+                     placeholder="Search Accounts..."
+                      object-api-name="Account"
+                       onchange={handleSearchAccount}>
+                       </lightning-record-picker>
+        </div>
+       <div class="slds-col slds-size_1-of-3">
+    
+        <lightning-button label="Close Selected Cases"
+                          onclick={closeSelectedCases} 
+                          disabled = {disableButton}
+                          title="Close Selected Cases"
+                          icon-name="utility:close"
+                          variant="Brand"></lightning-button>
+
+        </div>
+</div>
+        </div>
+
+        <!----------------------Summary Section------------------------------>
+        <div class="slds-grid slds-gutters">
+               <div class="slds-col">
+                  <div class="slds-text-align_left">
+                    Total Open Cases : <strong>{totalopencasecount}</strong>
+                  </div>
+                       </div>
+                   <div class="slds-col">
+                     <div class="slds-text-align_right">
+                        Total Selected Cases : <strong>{totalselectedcases}</strong>
+                     </div>
+                          </div>
+</div>
+
+<!--------------------Data Table to Display Data------------------------------------>
+
+    </lightning-card>
+</template>

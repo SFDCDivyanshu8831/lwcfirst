@@ -1,0 +1,21 @@
+import { LightningElement,wire } from 'lwc';
+import getAccount from '@salesforce/apex/AccountRelatedDataController.getAccount'
+import CurrentAmount from '@salesforce/schema/Asset.CurrentAmount';
+export default class AccountRelatedData extends LightningElement {
+
+    accountOptions;
+    error;
+
+    @wire(getAccount) wiredAccount({data,error}){
+        if(data){
+            this.accountOptions = data.map(CurrItem =>({
+                label : currItem.Name,
+                value : currItem.Id
+            }))
+        }else if(error){
+            
+        }
+    }
+    
+
+}

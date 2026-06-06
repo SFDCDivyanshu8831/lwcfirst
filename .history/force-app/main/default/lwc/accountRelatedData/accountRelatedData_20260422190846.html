@@ -1,0 +1,62 @@
+<template>
+    <lightning-card class="slds-var-p-around_small">
+        <div>
+
+        <lightning-combobox
+            name="Account"
+            label="Accounts"
+            placeholder="Select Account"
+            options={accountOptions}
+            onchange={handleChange} ></lightning-combobox>
+
+        </div>
+        <div class="slds-var-p-top_small">
+            <div class="slds-heading_medium slds-var-p-top_small" >
+                Related Cases
+            </div>
+         <template lwc:if={cases.length}>
+
+            <lightning-datatable key-field="Id"
+                                 data={cases}
+                                 columns={caseColumn}
+                                 hide-checkbox-column="" ></lightning-datatable>
+
+         </template>   
+
+         <template lwc:else>
+
+            <div class="slds-var-p-around_small">
+                No Cases Available,
+            </div>
+
+         </template>
+
+
+       </div>
+
+       <div class="slds-var-p-top_small">
+            <div class="slds-heading_medium slds-var-p-top_small" >
+                Related Cases
+            </div>
+         <template lwc:if={contacts.length}>
+
+            <lightning-datatable key-field="Id"
+                                 data={cases}
+                                 columns={caseColumn}
+                                 hide-checkbox-column="" ></lightning-datatable>
+
+         </template>   
+
+         <template lwc:else>
+
+            <div class="slds-var-p-around_small">
+                No Cases Available,
+            </div>
+
+         </template>
+
+          </div>
+
+
+    </lightning-card>
+</template>

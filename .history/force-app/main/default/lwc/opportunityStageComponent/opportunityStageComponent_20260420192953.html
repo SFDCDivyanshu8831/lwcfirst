@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Opportunity Stage Filter">
+        <div class="slds-var-p-around_small">
+
+            <div class="slds-grid slds-gutters">
+               <div class="slds-col slds-size_2-of-3">
+                 <lightning-combobox name="stage" 
+                                     label="stage" 
+                                     placeholder="Select Stage" 
+                                     options={stageOptions} 
+                                     onchange={handleStageChange}>
+                 </lightning-combobox>
+            </div>
+        <div class="slds-col slds-size_1-of-3">
+            
+            <lightning-input type="checkbox"
+                              label="Show Close Date"
+                              checked={showCloseDate}
+                              onchange={handleShowCloseDate}>
+
+            </lightning-input>
+
+                </div>
+                        
+                        
+                    
+                    </div>
+
+            
+        </div>
+    </lightning-card>
+</template>
